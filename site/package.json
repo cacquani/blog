@@ -1,0 +1,19 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "description": "Frontend app to show a website with a blog, will need the contents from a backend API",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build && mocha --require @babel/register test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "mygit"
+  },
+  "keywords": [
+    "blog",
+    "site"
+  ],
+  "author": "cacquani",
+  "license": "ISC"
+}
