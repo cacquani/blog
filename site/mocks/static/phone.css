@@ -1,0 +1,19 @@
+.container {
+  margin: 0;
+}
+
+header .title {
+  display: block;
+}
+
+header nav {
+  display: block;
+}
+
+.half {
+  padding-top: .5rem;
+}
+
+.half a span {
+  display: none;
+}

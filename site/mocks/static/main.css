@@ -1,0 +1,71 @@
+body {
+  font-family: Calibri, Helvetica, sans-serif;
+  background: linear-gradient(#e0eeff, #f0ffff, #e0eeff);
+}
+
+.main, header, footer {
+  padding: .5rem;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(#e0eeff, #fff);
+  padding-top: 1rem;
+  padding-bottom: .5rem;
+  border-bottom: 2px solid navy;
+}
+
+footer {
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(#fff, #e0eeff);
+  padding-top: .5rem;
+  padding-bottom: 1rem;
+  border-top: 2px solid navy;
+}
+
+.main {
+  overflow: hidden;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  background-color: white;
+}
+
+nav li {
+  display: inline-block;
+  width: 19%;
+  text-align: justify;
+  vertical-align: middle;
+}
+
+.half {
+  vertical-align: top;
+}
+
+.half a {
+  color: black;
+  display: inline-block;
+  text-decoration: none;
+  width: 19%;
+}
+
+.mail i {
+  color: black;
+}
+
+.whatsapp i {
+  color: #25D366;
+}
+
+.linkedin i {
+  color: #0077B5;
+}
+
+.gitlab i {
+  color: #FC6D26;
+}
+
+.github i {
+  color: black;
+}

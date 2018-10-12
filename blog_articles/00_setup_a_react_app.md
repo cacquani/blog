@@ -100,8 +100,8 @@ If you have a look at it right now, you'll see a `package.json` file and a
 
 This isn't enough yet - you'll want a few more things to make your app work.
 
-First you need a folder structure: in your root add a `public` and a `src`
-folder.
+First you need a folder structure: in your root add a `public`, a `src` and a
+`dist` folder.
 
 ### The public folder
 
@@ -135,3 +135,14 @@ shrink-to-fit=no">
 
 </html>
 ```
+
+The important lines are line 12, which is the root the React app will hook into,
+and line 16, which references the built react app.
+
+We'll go back to why 'bundle' and what 'building' the app means in a bit, as
+well as to what will go into the `src` folder.
+
+## Babel
+
+Go ahead and run npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0
+@babel/preset-env@7.1.0 @babel/preset-react@7.0.0

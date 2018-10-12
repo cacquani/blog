@@ -1,0 +1,20 @@
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+header .title {
+  display: inline-block;
+  width: 20%;
+}
+
+header nav {
+  display: inline-block;
+  width: 79%;
+}
+
+.half {
+  width: 49.5%;
+  display: inline-block;
+}
