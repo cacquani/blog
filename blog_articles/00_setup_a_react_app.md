@@ -6,9 +6,14 @@
 
 Javascript in general, and React in particular, are less than opinionated.
 
-I've recently set up a new React app with linting and testing, so I decided to
-document the process both as an exercise for me and in case someone else will
-find this useful.
+I've recently set up a new React app from scratch with linting and testing, so I
+decided to document the process both as an exercise for me and in case someone
+else will find this useful.
+
+I decided not to go with the react-create-app option because I tend to
+understand things a lot better if I go through the whole process, rather than
+just calling a generator and letting it do all the job - but I may try that
+later on (and write about it)
 
 First, when I set up my own project I started from
 [https://reactjs.org/docs/create-a-new-react-app.html#create-react-app](the
@@ -19,19 +24,23 @@ keen on linting and testing, I've decided to re-walk the tutorial, extend it
 with some parts that I found useful or I think could be useful for a beginner,
 and add the parts about setting up linting and testing as well.
 
-So, which tools will we use in the app?
+So, what will we add to the app?
 
-* Linux (will likely work on Mac as well)
-* git
-* npm (using Node v10.11.0 and npm 6.4.1 at the time of writing)
-* React
+* React (quite obviously)
 * Babel
-* ESLint
-* Mocha
-* Expect
-* Enzyme
+* A linter (ESLint)
+* A test suite (I'll write both about setting up Jest and setting up a
+  Mocha/Expect/Enzyme combo)
 
-## Make sure you have the latest Node.js
+## Before Starting
+
+I'm working on a Linux machine, this should still work nicely on a Mac.
+
+I would strongly advise against trying to get any serious work done on a Windows
+machine (I'll probably write a very angsty rant against Windows at some point,
+but not now).
+
+### Make sure you have the latest Node.js
 
 Node is available both from Homebrew and the Debian/Ubuntu package manager - but
 at least on Ubuntu the provided version is the LTS, not the latest.
@@ -47,6 +56,9 @@ manager) link.
 
 The last link leads you to the instructions to use your package manager - a bit
 hidden away, but not that hard to find.
+
+If you've done things correctly npm should come in bundle with Node, so that
+should be sorted automatically.
 
 ## Set up the project
 
@@ -103,7 +115,7 @@ This isn't enough yet - you'll want a few more things to make your app work.
 First you need a folder structure: in your root add a `public`, a `src` and a
 `dist` folder.
 
-### The public folder
+#### The public folder
 
 This is the folder that will handle any static asset, and most important it will
 house the `index.html` file that React will use to render the app.
@@ -117,32 +129,49 @@ beginning.
 <!-- sourced from https://blog.usejournal.com/creating-a-react-app-from-scratch-f3c693b84658 -->
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1,
-shrink-to-fit=no">
-  <title>React Starter</title>
-</head>
-
-<body>
-  <div id="root"></div>
-  <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-  <script src="../dist/bundle.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React Starter</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <script src="../dist/bundle.js"></script>
+  </body>
 </html>
 ```
 
-The important lines are line 12, which is the root the React app will hook into,
-and line 16, which references the built react app.
+The important lines are line 10, which is the root the React app will hook into,
+and line 14, which references the built react app.
 
 We'll go back to why 'bundle' and what 'building' the app means in a bit, as
 well as to what will go into the `src` folder.
 
-## Babel
+## Transpiling
+
+A bit of wikitionary: [https://en.wiktionary.org/wiki/transpile](transpile) is
+the contraction of [https://en.wiktionary.org/wiki/transcompile](transcompile),
+which means translating from a (programming) language to another on the same
+level.
+
+Why do we need this?
+
+React syntax uses a few things that Node can't process out of the box (for
+example, import/export and jsx).
+
+On top of this, browsers lag a bit behind when it comes to implement the latest
+Javascript versions, so to have all the React and Node syntax interpreted by the
+browser we’ll either need to build our files or interpret and serve them on the
+fly during development stage for the app to work.
+
+Transpiling from the newer/advanced/extended syntax we use for React and Node to
+the older, plain, boring and widely supported version of ECMA 5 that the
+browsers can understand is how we do it.
+
+Luckily, we can handle these issues with Babel and Webpack.
 
 Go ahead and run npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0
 @babel/preset-env@7.1.0 @babel/preset-react@7.0.0
