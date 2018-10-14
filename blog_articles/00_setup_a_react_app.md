@@ -92,7 +92,8 @@ From inside the folder run `npm init`. It will ask you a few questions:
   [https://en.wikipedia.org/wiki/ISC_license](ISC), the standard for npm
   packages.
 
-Great. All set up, except maybe you'll want to `git init` at this point.
+Great. All set up, except maybe you'll want to `git init` at this point, and add
+a `.gitignore` file that includes `dist` and `node_modules`.
 
 I'll assume you already know how git works.
 
@@ -109,6 +110,9 @@ hidden files.
 
 If you have a look at it right now, you'll see a `package.json` file and a
 `.git` folder.
+
+You can have a look at your `package.json` file - it will contain all the stuff
+you entered above.
 
 This isn't enough yet - you'll want a few more things to make your app work.
 
@@ -164,14 +168,64 @@ example, import/export and jsx).
 
 On top of this, browsers lag a bit behind when it comes to implement the latest
 Javascript versions, so to have all the React and Node syntax interpreted by the
-browser we’ll either need to build our files or interpret and serve them on the
-fly during development stage for the app to work.
+browser we’ll need to translate it in a version that the browser can understand.
 
 Transpiling from the newer/advanced/extended syntax we use for React and Node to
 the older, plain, boring and widely supported version of ECMA 5 that the
 browsers can understand is how we do it.
 
+We can do it either statically, by creating a file with the transpiled version
+of our code, or dynamically, interpreting and serving everything on the fly.
+
+The general tendency is to use the 'interpret on the fly' option for the
+development environment, where performance isn't an issue but seeing our changes
+go live fast is desirable.
+
 Luckily, we can handle these issues with Babel and Webpack.
 
-Go ahead and run npm install --save-dev @babel/core@7.1.0 @babel/cli@7.1.0
-@babel/preset-env@7.1.0 @babel/preset-react@7.0.0
+### Babel
+
+Babel is the compiler we're going to use to transform the code.
+
+The packages you'll need to install (`npm install --save-dev`) are
+@babel/core, @babel/cli, @babel/preset-env, @babel/preset-react.
+
+What do these do?
+
+`babel-core` is the main babel package, we need this for babel to do any
+transformations on our code.
+
+`babel-cli` allows you to compile files from the command line (or from a script,
+we'll get there).
+
+`preset-react` and `preset-env` are both presets that transform from specific
+flavours of code — in this case, the env preset allows us to transform ES6+ into
+more traditional javascript and the react preset does the same, but with JSX
+instead.
+
+Go ahead and install them.
+
+Now, if you re-open (or just refresh in your editor) your package.json file,
+you'll notice a new section called "devDependencies", with entries for the stuff
+you just installed, each with the installed version.
+
+At this point we also need to tell Babel what exactly we need it to do, which is
+apply the env and react presets to the code we will write.
+
+In the project root, create a file called `.babelrc`, with the following in it:
+
+```
+{
+  "presets": ["@babel/env", "@babel/preset-react"]
+}
+```
+
+There are also a lot of other Babel presets and plugins available that can be
+used if you only need to transform a specific subset of features, or if you need
+to transform some additional features that aren't covered by env.
+
+For the base project we don't need these, but in case you're curious a full list
+is available on the [https://babeljs.io/docs/en/plugins/](official Babel
+website).
+
+### Webpack
