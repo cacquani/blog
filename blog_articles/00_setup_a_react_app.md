@@ -229,3 +229,93 @@ is available on the [https://babeljs.io/docs/en/plugins/](official Babel
 website).
 
 ### Webpack
+
+First, what is Webpack and why do we use it?
+
+From the [https://webpack.js.org/concepts/](Webpack concepts page):
+
+"At its core, webpack is a static module bundler for modern JavaScript
+applications. When webpack processes your application, it internally builds a
+dependency graph which maps every module your project needs and generates one or
+more bundles."
+
+As a human, it's usually easier to manage code broken down into a modular
+structure, instead of a single jumbled file that contains logic, visualization
+and configuration all mixed together with no clear order. (Trust me on this, I
+had to deal with horrible 1000+ lines PHP files and I wouldn't go back to that
+for any reason whatsoever).
+
+When you're transferring files from your server to a browser, however, you want
+to minimise the overhead and the number of files transferred (it's faster that
+way, and uses less data).
+
+So, Webpack lets us bundle together our modular source files to generate a more
+compact structure ("one or more bundles") that works better when transferred
+over the web.
+
+The packages we need to install (again `npm install --save-dev`) are webpack,
+ webpack-cli, webpack-dev-server, style-loader, css-loader, babel-loader.
+
+What do these do?
+
+`webpack` is the main Webpack package, the core of the whole thing.
+
+`webpack-cli` is the command line interface, so that we can use Webpack to build
+our project from the command line or in our npm scripts (almost there).
+
+`webpack-dev-server` helps us during development. It creates the bundle in
+memory and serves it on the port we configure it to, letting us see the effect
+of the changes we make to our code without the need for recompile everything.
+
+Now the loaders: `style-loader`, `css-loader`, `babel-loader`. Webpack uses
+these to process different files before bundling. In particular, `style-loader`
+and `css-loader` take care of the css style of things, `babel-loader` uses the
+Babel we configured earlier on to transpile javascript.
+
+A complete list of loaders is available [https://webpack.js.org/loaders/](on the
+official Webpack site), we may end up using some more when adding the test
+framework.
+
+Pretty much like Babel, Webpack needs a configuration file that will define what
+we need it to do.
+
+This file needs to be at the root of the project and called `webpack.config.js`.
+
+Copy and paste the following in the file:
+
+```
+const path = require("path");
+const webpack = require("webpack");
+
+module.exports = {
+  entry: "./src/index.js",
+  mode: "development",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/env"] }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      }
+    ]
+  },
+  resolve: { extensions: ["*", ".js", ".jsx"] },
+  output: {
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "/dist/",
+    filename: "bundle.js"
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "public/"),
+    port: 3000,
+    publicPath: "http://localhost:3000/dist/",
+    hotOnly: true
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+};
+```
