@@ -111,12 +111,12 @@ hidden files.
 If you have a look at it right now, you'll see a `package.json` file and a
 `.git` folder.
 
-You can have a look at your `package.json` file - it will contain all the stuff
+You can have a look at the `package.json` file - it will contain all the stuff
 you entered above.
 
-This isn't enough yet - you'll want a few more things to make your app work.
+This isn't enough yet - you'll want a few more things to make the app work.
 
-First you need a folder structure: in your root add a `public`, a `src` and a
+First you need a folder structure: in the app root add a `public`, a `src` and a
 `dist` folder.
 
 #### The public folder
@@ -319,3 +319,34 @@ module.exports = {
   plugins: [new webpack.HotModuleReplacementPlugin()]
 };
 ```
+
+The above exports an object with the Webpack configuration.
+
+So, what's in it?
+
+At line 5, `entry` tells Webpack what is the entry point of our app, the file
+from which the application starts and the one from where Webpack should start
+bundling our files.
+
+The `module` object contains the rules that will define how each type of file
+should be processed.
+
+The first one is about transforming ES6 and jsx syntax.
+
+The `test` defines which extensions should be transformed, and the `exclude`
+tells Webpack to just ignore the files in `node_modules` and `bower_components`
+directories - these are the folders that will contain the npm modules used in
+the app, and should be already compiled.
+
+The `loader` part tells Webpack to use `babel-loader` to transform our files -
+as we saw above, Babel is the library that will transpile everything to ES5, and
+the `options` entry specifically tells Babel to use the `@babel/env` preset to
+to that.
+
+The second one is about processing CSS.
+
+We're not processing our CSS, so we only need to tell Webpack to use the
+`style-loader` and `css-loader`. The `loader` syntax is a shorthand for `use`
+when we only need one loader.
+
+
