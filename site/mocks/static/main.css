@@ -1,53 +1,88 @@
-body {
-  font-family: Calibri, Helvetica, sans-serif;
-  background: linear-gradient(#e0eeff, #f0ffff, #e0eeff);
+html {
+  height: 100vh;
 }
 
-.main, header, footer {
+body {
+  font-family: Calibri, Helvetica, sans-serif;
+  color: #111;
+  max-height: 100vh;
+  min-height: 100vh;
+  background-image: url('images/leeds_skyline_bw.png');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+}
+
+h1 {
+  font-weight: bolder;
+  font-size: larger;
+}
+
+nav {
+  color: #18B;
+}
+
+.content, header, footer {
+  background-color: #FFF;
   padding: .5rem;
+}
+
+.main {
+  min-height: 85vh;
+  opacity: 0.9;
 }
 
 header {
   position: sticky;
   top: 0;
-  background: linear-gradient(#e0eeff, #fff);
+  z-index: 999;
   padding-top: 1rem;
   padding-bottom: .5rem;
-  border-bottom: 2px solid navy;
+  border-bottom: 2px solid #18B;
+}
+
+header .title {
+  color: #18B;
 }
 
 footer {
   position: sticky;
-  bottom: 0;
-  background: linear-gradient(#fff, #e0eeff);
+  bottom: -1px;
   padding-top: .5rem;
   padding-bottom: 1rem;
-  border-top: 2px solid navy;
+  border-top: 2px solid #18B;
 }
 
-.main {
-  overflow: hidden;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  background-color: white;
+nav ul {
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 nav li {
   display: inline-block;
-  width: 19%;
   text-align: justify;
   vertical-align: middle;
 }
 
 .half {
   vertical-align: top;
+  display: flex;
+  flex: auto;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .half a {
   color: black;
   display: inline-block;
+  margin: auto;
   text-decoration: none;
-  width: 19%;
+}
+
+.half a span {
+  display: none;
 }
 
 .mail i {

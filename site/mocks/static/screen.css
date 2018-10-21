@@ -1,7 +1,12 @@
-.container {
+header, footer, .content {
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
+}
+
+.main {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 header .title {
@@ -14,7 +19,7 @@ header nav {
   width: 79%;
 }
 
-.half {
-  width: 49.5%;
-  display: inline-block;
+footer {
+  display: flex;
+  justify-content: space-between;
 }

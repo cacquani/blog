@@ -1,9 +1,16 @@
-.container {
+header, footer, .content {
   margin: 0;
+  width: 100vw;
+}
+
+.main {
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 header .title {
   display: block;
+  margin-bottom: 1rem;
 }
 
 header nav {
@@ -12,8 +19,4 @@ header nav {
 
 .half {
   padding-top: .5rem;
-}
-
-.half a span {
-  display: none;
 }
