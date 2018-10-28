@@ -324,6 +324,7 @@ The above exports an object with the Webpack configuration.
 
 So, what's in it?
 
+
 At line 5, `entry` tells Webpack what is the entry point of our app, the file
 from which the application starts and the one from where Webpack should start
 bundling our files.
@@ -349,4 +350,35 @@ We're not processing our CSS, so we only need to tell Webpack to use the
 `style-loader` and `css-loader`. The `loader` syntax is a shorthand for `use`
 when we only need one loader.
 
+After the rules, we have the `resolve` property.
 
+This allows us to specify which extensions Webpack will resolve, which in turn
+allows us to import modules without needing to add their extensions.
+
+The `output` property specifies two things: where to bundle our code, and where
+the `webpack-dev-server` will serve our bundled code from.
+
+The `path` is where Webpack will put our bundled code, it's a filesystem path
+and it needs to be absolute.
+
+The `path.resolve(__dirname` part uses the Node.js path module to extract the
+config file location, and join it with the folder we specify to get an absolute
+path.
+
+The filename is the name we decide to give to the bundled file, you can choose
+whatever you prefer, but it must be the same here and at line 14 of the
+`index.html` file we used above.
+
+The central part, the `publicPath`, is a special property that tells the
+`webpack-dev-server` where to serve this file from.
+
+If this is set incorrectly, the server won’t be serving your files from the
+correct location and you will get a 404 error.
+
+The `devServer` section is the `webpack-dev-server` configuration.
+
+
+
+This covers what we put into our basic config file, but you can find a more
+comprehensive list of all the possible options
+[https://webpack.js.org/configuration/](here).

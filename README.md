@@ -9,6 +9,8 @@ Experiment with a blog engine and JavaScript.
 
 ## Ideas
 
+* https://www.npmjs.com/package/markdown
+* Comments - what to use?
 * Single Page Application - React?
 * Two different apps (blog and admin) feeding in the same Node.js API?
 * MongoDB database
