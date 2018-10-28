@@ -284,36 +284,36 @@ This file needs to be at the root of the project and called `webpack.config.js`.
 Copy and paste the following in the file:
 
 ```
-const path = require("path");
-const webpack = require("webpack");
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
-  entry: "./src/index.js",
-  mode: "development",
+  entry: './src/index.js',
+  mode: 'development',
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
-        options: { presets: ["@babel/env"] }
+        loader: 'babel-loader',
+        options: { presets: ['@babel/env'] }
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
-  resolve: { extensions: ["*", ".js", ".jsx"] },
+  resolve: { extensions: ['*', '.js', '.jsx'] },
   output: {
-    path: path.resolve(__dirname, "dist/"),
-    publicPath: "/dist/",
-    filename: "bundle.js"
+    path: path.resolve(__dirname, 'dist/'),
+    publicPath: '/dist/',
+    filename: 'bundle.js'
   },
   devServer: {
-    contentBase: path.join(__dirname, "public/"),
+    contentBase: path.join(__dirname, 'public/'),
     port: 3000,
-    publicPath: "http://localhost:3000/dist/",
+    publicPath: 'http://localhost:3000/dist/',
     hotOnly: true
   },
   plugins: [new webpack.HotModuleReplacementPlugin()]
@@ -377,8 +377,267 @@ correct location and you will get a 404 error.
 
 The `devServer` section is the `webpack-dev-server` configuration.
 
+The `port` is the port the server will listen to. Of course pick something
+you're not already using, and keep in mind that it's going to be used for the
+_dev_ server only.
 
+Production will be a different matter.
 
-This covers what we put into our basic config file, but you can find a more
-comprehensive list of all the possible options
+The `contentBase` is where we will serve static assets from - `public` is a
+classic here.
+
+The `publicPath` determines where the bundled files will be available in the
+browser. It can be just a partial path same as the `contentBase`, but if we wish
+to use the [https://webpack.js.org/concepts/hot-module-replacement/](hot module
+replacement) it needs to be a full URL like in the example.
+
+The last entry in the `devServer` section, `hotOnly`, tells the server to use
+hot module replacement, and in the following section - `plugins` - we
+instantiate the `HotModuleReplacementPlugin`.
+
+To get this working we will need to add another bit in the React part, but for
+this file that's all.
+
+This section covers only what we put into our basic config file, but you can
+find a more comprehensive list of all the possible options
 [https://webpack.js.org/configuration/](here).
+
+## Setting up React
+
+### React itself
+
+The first thing to do is to install two new packages: `react` and `react-dom`.
+This time we need to install them as regular dependencies with `npm install
+--save` instead of `--save-dev`.
+
+The next step is to create the entry point for our react app.
+
+We will put this in the `src` folder we previously created.
+
+If you go back and have a look at when we set up the app with `npm init`, you
+will see that when asked about the entry point we choose `index.js`, so that's
+what we will call our file.
+
+The content of our `src/index.js` will be:
+
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './app.js';
+ReactDOM.render(<App />, document.getElementById('root'));
+```
+
+In the first two lines we import `React` and `ReactDOM`, the two packages we
+installed above.
+
+The third line imports our `App` component from an `app` file.
+
+In fact it will be an `app.js` file, but if you remember above we set up our
+Webpack to be able to import from files without the need to specify the
+extension.
+
+The last line is the function that tells React what to render and where to
+render it.
+
+What we're rendering is our `App` component, and we're rendering at the DOM
+element with the ID root in our `index.html` (line 10).
+
+Now it's time to create our `app.js` file, again into the `src` folder:
+
+```
+import React, { Component} from 'react';
+import './app.css';
+
+class App extends Component{
+  render(){
+    return(
+      <div className='App'>
+        <h1> Hello, World! </h1>
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+This is a very basic React component that will render a 'Hello World' page.
+
+Since we set up Webpack to also process CSS files, let's add an example of this
+and create a very simple `app.css` file in `src`:
+
+```
+.App {
+  margin: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+  border-bottom: 2px solid #18B;
+}
+```
+
+Your final folder structure (unless you changed some of the names) should be:
+
+```
+.
++-- dist
++-- node_modules
++-- public
+|+-- index.html
++-- src
+|+-- app.css
+|+-- app.js
+|+-- index.js
++-- .babelrc
++-- .gitignore
++-- package-lock.json
++-- package.json
++-- webpack.config.js
+```
+
+Now you can reach the command line and type:
+
+```
+webpack-dev-server --mode development
+```
+
+Best case, it will tell you `Project is running at http://localhost:3000/` and a
+bunch of other useful information.
+
+If it does instead complain about `webpack-dev-server: command not found` (as it
+does on my system) you'll have to specify the full path:
+
+```
+./node_modules/.bin/webpack-dev-server --mode development
+```
+
+Once your app is started, go ahead and open a browser pointing at
+`localhost:3000` to see your app.
+
+### Finishing touch to the Hot Module Reload
+
+You now have a running `webpack-dev-server` serving a React app.
+
+If you try to change something in your file and reload the page in your browser,
+though, you won't see any change.
+
+Well, HMR needs to know which elements to watch for changes, and we haven't told
+it anything!
+
+So, first thing we'll need to install a new package,
+[https://github.com/gaearon/react-hot-loader](`react-hot-loader`).
+
+The documentation states the following:
+
+> Note: You can safely install react-hot-loader as a regular dependency instead
+> of a dev dependency as it automatically ensures it is not executed in
+> production and the footprint is minimal.
+
+So it's up to you whether to install it as a `--save` or `--save-dev`.
+
+Once installed, the documentation suggests to add the `react-hot-loader/babel`
+plugin to your `.babelrc`, that will become:
+
+```
+{
+  "presets": ["@babel/env", "@babel/preset-react"],
+  "plugins": ["react-hot-loader/babel"]
+}
+```
+
+The next step is to mark your root component (our `App`, in the `src/app.js`
+file) as _hot-exported_.
+
+So our `app.js` file will become:
+```
+import React, { Component} from 'react';
+import { hot } from 'react-hot-loader'
+import './app.css';
+
+class App extends Component{
+  render(){
+    return(
+      <div className="App">
+        <h1> Hello, World! </h1>
+      </div>
+    );
+  }
+}
+
+export default hot(module)(App)
+```
+
+Now stop and restart your `webpack-dev-server`.
+
+Every change you'll made from now on will cause your web page to reload
+automatically with the new elements.
+
+### The `dist` folder
+
+We created the `dist` folder, we excluded it from being checked out in Git, we
+referenced it in several places but if you go and have a look at it the folder
+is empty.
+
+The reason for this is that we haven't really _bundled_ anything yet.
+
+Sure, we ran the `webpack-dev-server`, but that doesn't actually _save_ the
+bundle it creates, it just generates it and keeps it in memory.
+
+Since we will need the bundled files later on when we get our app to production,
+let's have a look at how to generate it.
+
+We already installed all we need, which is Webpack, and now we only need to run
+the specific command:
+
+```
+webpack --mode development
+```
+
+Again you may get a `webpack: command not found`, and you may need to run
+instead:
+
+```
+./node_modules/.bin/webpack --mode development
+```
+
+And you will now see a `bundle.js` file appear in your `dist` folder.
+
+## Scripts
+
+Typing the whole `webpack-dev-server --mode development` could be a bit tedious
+to type, especially if you have to specify the full path like I do.
+
+Luckily you can add a script in your `package.json` file and save yourself a
+considerable amount of keystrokes!
+
+So, open your `package.json` file.
+
+You'll need to add a new entry, at the same level of `dependencies`.
+
+I personally prefer to add it before either `dependencies` and
+`devDependencies`, as these two section can grow considerably if you start
+having a complex app with loads of modules, and I prefer to have the parts I
+configure personally towards the beginning of the file.
+
+The new section will be `scripts`, and it will look like this:
+
+```
+{
+  ...
+  "scripts": [
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
+  ],
+  ...
+```
+
+Once added this, you'll be able to run `npm run dev` to start your
+`webpack-dev-server`.
+
+The second script is a shortcut for building the app. The "default" mode is
+production, since for development purposes we will mainly use the
+`webpack-dev-server`.
+
+## Next steps
+
+For the next steps I will set up linting with ESLint and testing with Jest.
+
+## Useful links

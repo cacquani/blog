@@ -1,0 +1,27 @@
+@media screen and (min-width:481px) {
+  header, footer, .content {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .main {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  header .title {
+    display: inline-block;
+    width: 20%;
+  }
+
+  header nav {
+    display: inline-block;
+    width: 79%;
+  }
+
+  footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}
