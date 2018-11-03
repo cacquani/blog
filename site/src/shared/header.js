@@ -10,11 +10,11 @@ class Header extends Component {
         </div>
         <nav>
           <ul>
-            <li className="active">Home</li>
-            <li>Projects</li>
-            <li>Concepts</li>
-            <li>Blog</li>
-            <li>Resume</li>
+            <li className="active"><a href="/">Home</a></li>
+            <li className="inactive">Projects</li>
+            <li className="inactive">Concepts</li>
+            <li className="inactive">Blog</li>
+            <li className="inactive">Resume</li>
           </ul>
         </nav>
       </header>

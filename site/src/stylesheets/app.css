@@ -14,8 +14,27 @@ h1 {
   font-size: larger;
 }
 
+h1, h2, h3, h4, h5 {
+  color: #18B;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
 nav {
   color: #18B;
+}
+
+nav li a {
+  color: #18B;
+  text-decoration: none;
+}
+
+nav li.active a {
+  font-weight: bolder;
+}
+
+nav li.inactive {
+  color: #888;
 }
 
 .content, header, footer {
