@@ -1,0 +1,6 @@
+{
+  "root": "public/",
+  "routes": {
+    "dist": "dist/"
+  }
+}

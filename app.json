@@ -5,7 +5,7 @@
   "repository": "https://github.com/yourname/your-app",
   "buildpacks": [
     {
-      "url": "https://github.com/jedahu/heroku-buildpack-static-blog"
+      "url": "https://github.com/heroku/heroku-buildpack-static"
     }
   ],
 }
