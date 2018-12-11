@@ -75,6 +75,22 @@ Once we select the first option, we are offered with three popular style guides:
 
 We can follow the links and have a look at what each one proposes.
 
+The AirBnB guide defines itself "a mostly reasonable approach to JavaScript",
+but right after this we're greeted by a "Note: this guide assumes you are using
+Babel, and requires that you use babel-preset-airbnb or the equivalent. It also
+assumes you are installing shims/polyfills in your app, with
+[https://github.com/airbnb/browser-shims](airbnb-browser-shims) or the
+equivalent."
+
+I added the link to the browser-shims repository, in case you want to go and
+have a look.
+
+This style guide uses a lot of additional items,
+
+
+[https://npmcompare.com/compare/eslint-config-airbnb,eslint-config-google,standard](someone
+compared them for us!)
+
 ### PICK THE STYLE
 ### ESLINT WITH REACT
 
