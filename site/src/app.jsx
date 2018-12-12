@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component } from 'react';
 import { hot } from 'react-hot-loader';
 import './stylesheets/reset.css';
 import './stylesheets/app.css';
