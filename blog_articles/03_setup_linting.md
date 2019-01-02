@@ -1,4 +1,4 @@
-# Setup linting and testing
+# Setup linting
 
 When they first start writing code, people usually focus on "making it work".
 
@@ -10,8 +10,6 @@ seeing errors creep in, errors that weren't there before...
 This is where linting and testing come in.
 
 The easiest bit is linting.
-
-## Linting
 
 So what is linting?
 
@@ -35,7 +33,7 @@ PayPal and Netflix.
 It also has the AirBnB style and the Classic JS style as presets, along with the
 option of creating our own in-house set of rules.
 
-### Setting up ESlint
+## Setting up ESlint
 
 The first thing we need to do is add it to our `package.json`.
 As we will only need ESlint while we develop our app, we can do it with `npm
@@ -44,7 +42,7 @@ install eslint --save-dev`.
 Once installed, ESlint offers a handy configuration script to initialize our
 project.
 
-#### Initialise the project with ESlint
+### Initialise the project with ESlint
 
 If we run `./node_modules/.bin/eslint --init`, ESlint will ask us a set of
 questions to help us configure our linter.
@@ -128,7 +126,7 @@ project.
 Once we've selected this, it checks if the style guide has any additional
 dependencies and offers to install them, which is perfectly fine to us!
 
-#### Create the scripts
+### Create the scripts
 
 We now need to add a new row in the `scripts` section of our `package.json`
 file, to make it faster to run the linter and later on to concatenate it with
@@ -152,7 +150,7 @@ like this:
   },
 ```
 
-#### Running the linter for the first time and fixing the code
+### Running the linter for the first time and fixing the code
 
 Now you can run the linter with the command:
 
