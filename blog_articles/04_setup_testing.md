@@ -17,4 +17,29 @@ Since we have a small, new and fairly tidy project, we'll start with Jest, which
 has the added bonus of requiring less configuration and having no need for
 external assertion libraries.
 
+So, let's start.
 
+## Setting up Jest
+
+In the Jest website there's a handy
+[https://jestjs.io/docs/en/tutorial-react.html](tutorial) on how to set up Jest
+inside a React app.
+
+The first thing is to add the appropriate npm modules.
+
+The tutorial adds the Babel presets, but we already have them from when we set
+up our app initially, so this will be enough:
+
+```
+yarn add --dev jest babel-jest react-test-renderer
+```
+
+For the same reason, we don't need to add the presets to the `.babelrc` file,
+they're already there.
+
+And according to the guide, this is all!
+
+## Where to put the test file?
+
+There are a few different ideas regarding where to put the test files in a
+JavaScript project.
