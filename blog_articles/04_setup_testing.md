@@ -41,5 +41,18 @@ And according to the guide, this is all!
 
 ## Where to put the test file?
 
-There are a few different ideas regarding where to put the test files in a
-JavaScript project.
+React isn't very opinionated about the file structure, have a look at the
+[https://reactjs.org/docs/faq-structure.html](official guidelines) if you don't
+believe me.
+
+Regarding to where to put your test files, the situation is the same, with no
+official/recommended solutions but several different opinions and guidelines.
+
+The leading one seems to suggest to put the test files in the same folder as the
+corresponding file, with the same name plus '.test'.
+
+For example, if you want tests for your `src/app.js` file, the test file will be
+`src/app.test.js`.
+
+The next step would be to start writing tests, but since we don't have anything
+to test yet, we'll write some code first and then come back to this.
