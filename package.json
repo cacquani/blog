@@ -4,7 +4,8 @@
   "description": "Small personal website mock set up for educational purposes",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && mocha --require @babel/register test/*.test.js"
+    "dev": "webpack-dev-server --mode development",
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
