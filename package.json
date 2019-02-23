@@ -1,0 +1,27 @@
+{
+  "name": "educational-site-project",
+  "version": "1.0.0",
+  "description": "Small personal website mock set up for educational purposes",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run build && mocha --require @babel/register test/*.test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacquani/blog.git"
+  },
+  "keywords": [
+    "educational",
+    "blog",
+    "personal",
+    "website",
+    "react",
+    "app"
+  ],
+  "author": "cacquani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cacquani/blog/issues"
+  },
+  "homepage": "https://github.com/cacquani/blog#readme"
+}
