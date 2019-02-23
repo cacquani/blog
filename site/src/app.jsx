@@ -4,9 +4,9 @@ import './stylesheets/reset.css';
 import './stylesheets/app.css';
 import './stylesheets/screen.css';
 import './stylesheets/phone.css';
-import Header from './shared/header'
-import Main from './shared/main'
-import Footer from './shared/footer'
+import Header from './components/header'
+import Main from './components/main'
+import Footer from './components/footer'
 
 class App extends Component{
   render(){
