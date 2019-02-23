@@ -60,10 +60,25 @@ hidden away, but not that hard to find.
 If you've done things correctly npm should come in bundle with Node, so that
 should be sorted automatically.
 
+### Add Yarn (optional)
+
+The package manager that comes in bundle with Node is `npm`, but it has
+shortcomings - not last, being relatively slow.
+
+A more performant package manager is [https://yarnpkg.com](Yarn), which can be
+easily installed either using your Linux OS package manager or Homebrew for Mac
+(again, if you're convinced you can use a Windows machine for any serious work,
+you're on your own).
+
+You can find the specific instructions on the
+[https://yarnpkg.com/en/docs/install](official installation guide), just select
+your OS name and version from the dropdown menu if it's not correctly identified
+when you reach the page.
+
 ## Set up the project
 
-Once installing Node.js is out of the way (and npm should come in bundle if
-you've done it correctly) the next step is to set up the project.
+Once installing Node.js is out of the way and you've decided if you want to go
+with the default `npm` or try `yarn`, the next step is to set up the project.
 
 All the following assumes you're working in a bash console.
 
@@ -91,6 +106,10 @@ From inside the folder run `npm init`. It will ask you a few questions:
   the npm directory. The suggested licence is
   [https://en.wikipedia.org/wiki/ISC_license](ISC), the standard for npm
   packages.
+
+If you decide to go with Yarn and run `yarn init` instead it will skip keywords
+and test command, use MIT as a default licence and ask you if you want your
+project to be private. Not a huge difference.
 
 Great. All set up, except maybe you'll want to `git init` at this point, and add
 a `.gitignore` file that includes `dist` and `node_modules`.
@@ -187,8 +206,8 @@ Luckily, we can handle these issues with Babel and Webpack.
 
 Babel is the compiler we're going to use to transform the code.
 
-The packages you'll need to install (`npm install --save-dev`) are
-@babel/core, @babel/cli, @babel/preset-env, @babel/preset-react.
+The packages you'll need to install (`yarn add dev` or `npm install --save-dev`)
+are `@babel/core @babel/cli @babel/preset-env @babel/preset-react`.
 
 What do these do?
 
@@ -253,8 +272,9 @@ So, Webpack lets us bundle together our modular source files to generate a more
 compact structure ("one or more bundles") that works better when transferred
 over the web.
 
-The packages we need to install (again `npm install --save-dev`) are webpack,
- webpack-cli, webpack-dev-server, style-loader, css-loader, babel-loader.
+The packages we need to install (again `yarn add dev` or `npm install
+--save-dev`) are `webpack webpack-cli webpack-dev-server style-loader css-loader
+babel-loader`.
 
 What do these do?
 
@@ -408,7 +428,7 @@ find a more comprehensive list of all the possible options
 
 The first thing to do is to install two new packages: `react` and `react-dom`.
 This time we need to install them as regular dependencies with `npm install
---save` instead of `--save-dev`.
+--save` (instead of `--save-dev`) or `yarn add`.
 
 The next step is to create the entry point for our react app.
 
@@ -629,8 +649,12 @@ The new section will be `scripts`, and it will look like this:
   ...
 ```
 
-Once added this, you'll be able to run `npm run dev` to start your
-`webpack-dev-server`.
+You may already have a `scripts` section with a `test` command - in that case,
+just add a comma at the end of the line and add the `dev` and `build` lines
+after that.
+
+Once added this, you'll be able to run `npm run dev` or `yarn run dev` to start
+your `webpack-dev-server`.
 
 The second script is a shortcut for building the app. The "default" mode is
 production, since for development purposes we will mainly use the
