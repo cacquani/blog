@@ -11,3 +11,7 @@ us to different mock pages, and in the next version we'll add tests for it.
 components that make handling navigation easier.
 
 For this project, though, we're going to have a very limited
+
+## Add a navigation bar at the top of our site
+
+// explain links
