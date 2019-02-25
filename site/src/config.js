@@ -1,3 +1,8 @@
+const title = {
+  title: 'Cristina Acquani',
+  subtitle: 'Contract Software Developer',
+};
+
 const links = [
   {
     active: 1,
@@ -26,4 +31,4 @@ const links = [
   },
 ];
 
-export { links };
+export { title, links };
