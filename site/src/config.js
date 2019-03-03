@@ -6,28 +6,28 @@ const title = {
 const links = [
   {
     active: 1,
-    url: "/",
-    text: "Home",
+    url: '/',
+    text: 'Home',
   },
   {
     active: 0,
-    url: "/projects",
-    text: "Projects",
+    url: '/projects',
+    text: 'Projects',
   },
   {
     active: 0,
-    url: "/concepts",
-    text: "Concepts",
+    url: '/concepts',
+    text: 'Concepts',
   },
   {
     active: 0,
-    url: "/blog",
-    text: "Blog",
+    url: '/blog',
+    text: 'Blog',
   },
   {
     active: 0,
-    url: "/resume",
-    text: "Resume",
+    url: '/resume',
+    text: 'Resume',
   },
 ];
 
