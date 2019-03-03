@@ -9,11 +9,20 @@ import Main from './components/main'
 import Footer from './components/footer'
 
 class App extends Component{
+  constructor(props) {
+    super(props);
+    this.state = { pageId: 'home' };
+  }
+
+  changePage(id) {
+    this.setState({ pageId: id })
+  }
+
   render(){
     return(
       <div className="App">
-        <Header />
-        <Main />
+        <Header changePage={this.changePage.bind(this)} />
+        <Main pageId={this.state.pageId} />
         <Footer />
       </div>
     );

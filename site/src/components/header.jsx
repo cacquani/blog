@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <header>
         <Title title={title} />
-        <Navbar links={links} />
+        <Navbar links={links} changePage={this.props.changePage} />
       </header>
     );
   }
