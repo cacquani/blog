@@ -1,8 +1,8 @@
 body {
   font-family: Calibri, Helvetica, sans-serif;
   color: #111;
-  background-image: linear-gradient(#FFF, #AEF);
-  background-image: url('/images/leeds_skyline_bw.png');
+  /* background-image: linear-gradient(#FFF, #AEF);
+  background-image: url('/images/leeds_skyline_bw.png'); */
   background-position: bottom;
   background-repeat: repeat-x;
   background-attachment: fixed;

@@ -69,7 +69,7 @@ class Home extends Component {
         <h4>Outside Work</h4>
         <p>
           In my spare time I like to cook, read, write, draw and I am (slowly)
-          learning to make games with Unity.
+          learning to make games.
         </p>
         <p>
           I also coach at Rails Girls events when I can find some nearby or
