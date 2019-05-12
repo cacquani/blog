@@ -11,7 +11,7 @@ const links = [
     id: 'home',
   },
   {
-    active: 1,
+    active: 0,
     url: '/projects',
     text: 'Projects',
     id: 'projects',
@@ -29,7 +29,7 @@ const links = [
     id: 'blog',
   },
   {
-    active: 0,
+    active: 1,
     url: '/resume',
     text: 'Resume',
     id: 'resume',

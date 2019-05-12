@@ -101,7 +101,7 @@ https://www.hardreset.info/devices/blackview/blackview-a7/fastboot-mode/
 3. In the terminal, run `fastboot reboot` to reboot your application.
 4. Re-enable USB debugging (see above).
 
-## Root the phone
+## Root the phone (optional, since it comes in bundle with some ROMs)
 
 https://duckduckgo.com/?q=root+blackview+a7&t=canonical&ia=web
 http://neopodapsi.com/how-to-root-blackview-a7/
@@ -112,24 +112,86 @@ https://mobilespecs.net/phone/root/Blackview/Blackview_A7.html
 https://www.stupdroid.com/2017/09/root-twrp-Blackview-A7.html
 https://www.androidweblog.com/root-blackview-a7-pro-install-twrp-recovery/
 https://rootmygalaxy.net/install-twrp-recovery-and-root-blackview-a7/
+
+
 https://www.getdroidtips.com/root-twrp-blackview-a7/
+https://www.techrrival.com/custom-recovery-android/
+https://www.techrrival.com/flash-recovery-adb-fastboot/
+https://www.techrrival.com/root-android-recovery/
 
-### Install SU
 
+https://twrp.me/about/
+
+### Install SU 
+
+https://beebom.com/cool-things-adb-lets-you-do-android-device/
 https://forums.androidcentral.com/htc-one-rooting-roms-hacks/366745-root-without-using-twrp-cwm.html
 In a terminal:
 
+https://www.xda-developers.com/root/
+https://www.quora.com/How-do-you-root-an-Android-phone
+
 ```
+fastboot oem append-cmdline "androidboot.unlocked_kernel=true" (fails)
+fastboot continue
+
+adb reboot bootloader
 adb remount
 adb push su /system/xbin/su
 adb shell chmod 04755 /system/xbin/su
 ```
 
+https://download.lineageos.org/extras
+
+
 ### Install custom ROM
 
-https://www.quora.com/Is-it-possible-to-flash-a-custom-ROM-without-rooting-the-Android-device
-https://www.quora.com/How-do-I-install-custom-ROM-without-rooting
+Right now there's no custom ROM for the Blackview A7.
+
+Porting SlimRoms seems an interesting possibility, UbuntuTouch seems a bit heavyweight.
+Or there's the option of making a new one from scratch (time consuming, win the lottery first ;-) )
+
+https://en.wikipedia.org/wiki/List_of_custom_Android_distributions
+
+Specs and proc:
+
+* https://www.gsmarena.com/blackview_a7-9045.php
+* http://mediatek-mobile.com/mediatek-mt6580/
+
+SlimRoms:
+
+* Installation instructions https://slimroms.org/#/support/install
+* Source Code https://github.com/SlimRoms
+
+GApps (Open Google Apps replacement):
+
+* https://opengapps.org/
+
+CarbonRom:
+
+* Home https://www.carbonrom.org/
+* Source Code https://github.com/CarbonROM
+
+Ubuntu Touch:
+
+* Home https://ubports.com/
+* Build it https://docs.halium.org/en/latest/
+* Porting, first steps (minimum 16G storage) https://docs.halium.org/en/latest/porting/first-steps.html 
 
 ## Additional interesting bits
 
 https://droidusb.com/download-codes/blackview-a7/
+
+Start the phone, then keep volume down key pressed. You'll get to a menu in chinese that (according to Google) translates as:
+https://dictionary.writtenchinese.com/
+
+Title: Factory mode (工 厂模式)
+Options:
+* Automatic testing (自动测 试) 
+* Manual testing (手动测试)
+* Single test (单项测试)
+* Testing report (测试报告)
+* Debug test item (调试测试项)
+* Clear eMMC (memory) (清除 eMMC)
+* Version information (版本信息 )
+* Reboot phone (重启手机)

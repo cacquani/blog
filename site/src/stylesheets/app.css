@@ -1,5 +1,6 @@
 body {
   font-family: Calibri, Helvetica, sans-serif;
+  font-size: large;
   color: #111;
   /* background-image: linear-gradient(#FFF, #AEF);
   background-image: url('/images/leeds_skyline_bw.png'); */
@@ -9,15 +10,28 @@ body {
   min-height: 100vh;
 }
 
+a {
+  color: #18B;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #17A;
+  margin-top: 1rem;
+  margin-bottom: .5rem;
+}
+
 h1 {
+  color: #18B;
   font-weight: bolder;
   font-size: larger;
 }
 
-h1, h2, h3, h4, h5 {
+h2 {
   color: #18B;
-  margin-top: 1rem;
-  margin-bottom: .5rem;
+  font-weight: bold;
+  font-size: large;
 }
 
 nav {
@@ -98,6 +112,15 @@ nav li {
 
 .half a span {
   display: none;
+}
+
+.divider {
+  border-bottom: 1px solid #18B;
+}
+
+.resume-list {
+  margin-left: 1rem;
+  list-style-image: url('/images/dot.svg');
 }
 
 .mail i {

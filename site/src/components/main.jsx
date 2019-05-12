@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Home from './home';
 import Projects from './projects';
+import Resume from './resume';
 
 class Header extends Component {
   getPage() {
@@ -9,6 +10,8 @@ class Header extends Component {
         return <Home />
       case 'projects':
         return <Projects />
+      case 'resume':
+        return <Resume />
     }
   }
 
