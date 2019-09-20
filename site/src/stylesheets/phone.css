@@ -1,24 +1,45 @@
 @media screen and (max-width:480px) {
   header, footer, .content {
     margin: 0;
-    width: 100%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: 90%;
   }
 
   .main {
     margin-top: 1.5rem;
     margin-bottom: 2rem;
+    text-align: justify;
   }
 
   header .title {
+    border-bottom: 1px solid #18B;
     display: block;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
-  header nav {
-    display: block;
+  nav ul {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   .half {
     padding-top: .5rem;
+    padding-bottom: .5rem;
+    text-align: center;
+    border-bottom: 1px solid #18B;
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .half:last-child {
+      border: none;
+      padding-top: 1rem;
+      padding-bottom: 0;
   }
 }

@@ -1,8 +1,14 @@
 @media screen and (min-width:481px) {
-  header, footer, .content {
+  header, footer {
     width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .content {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   .main {
@@ -10,14 +16,28 @@
     margin-bottom: 1rem;
   }
 
+  header {
+    display: flex;
+    justify-content: space-between;
+  }
+
   header .title {
     display: inline-block;
-    width: 20%;
+    min-width: 18rem;
   }
 
   header nav {
     display: inline-block;
-    width: 79%;
+    padding-top: 3.5rem;
+  }
+
+  nav ul {
+    display: block;
+    text-align: right;
+  }
+
+  nav li {
+    margin-left: 3rem;
   }
 
   footer {

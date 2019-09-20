@@ -1,13 +1,33 @@
+@font-face {
+  font-family: 'TeXGyreAdventor';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/TeXGyreAdventor-Regular.ttf') format('truetype'); /* Safari, Android, iOS */
+}
+
 body {
-  font-family: Calibri, Helvetica, sans-serif;
+  font-family: TeXGyreAdventor, Calibri, Helvetica, sans-serif;
   font-size: large;
   color: #111;
-  /* background-image: linear-gradient(#FFF, #AEF);
-  background-image: url('/images/leeds_skyline_bw.png'); */
+  background-image: linear-gradient(to right bottom, #FFF, #F9F9F9, #EEE);
+  background-size: cover;
   background-position: bottom;
   background-repeat: repeat-x;
   background-attachment: fixed;
   min-height: 100vh;
+}
+
+.content, header, footer {
+  padding: .5rem;
+}
+
+header {
+  background-color: #FFF;
+}
+
+
+footer {
+  background-image: linear-gradient(to right, #F9F9F9, #EEE);
 }
 
 a {
@@ -16,30 +36,35 @@ a {
   font-weight: bold;
 }
 
+p, li {
+  line-height: 1.7rem;
+}
+
 h1, h2, h3, h4, h5 {
-  color: #17A;
+  color: #000;
   margin-top: 1rem;
   margin-bottom: .5rem;
 }
 
 h1 {
-  color: #18B;
+  color: #000;
   font-weight: bolder;
-  font-size: larger;
+  font-size: xx-large;
+  margin-top: .5rem;
 }
 
 h2 {
-  color: #18B;
+  color: #000;
   font-weight: bold;
   font-size: large;
 }
 
 nav {
-  color: #18B;
+  color: #000;
 }
 
 nav li a {
-  color: #18B;
+  color: #000;
   text-decoration: none;
 }
 
@@ -49,11 +74,6 @@ nav li.active a {
 
 nav li.inactive {
   color: #888;
-}
-
-.content, header, footer {
-  background-color: #FFF;
-  padding: .5rem;
 }
 
 .main {
@@ -68,10 +88,11 @@ header {
   padding-top: 1rem;
   padding-bottom: .5rem;
   border-bottom: 2px solid #18B;
+  /* background: linear-gradient(#FFF, #F6F9FF); */
 }
 
 header .title {
-  color: #18B;
+  color: #000;
 }
 
 footer {
@@ -80,13 +101,7 @@ footer {
   padding-top: .5rem;
   padding-bottom: 1rem;
   border-top: 2px solid #18B;
-}
-
-nav ul {
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: space-between;
+  /* background: linear-gradient(#F6F9FF, #FFF); */
 }
 
 nav li {
@@ -97,10 +112,10 @@ nav li {
 
 .half {
   vertical-align: top;
-  display: flex;
-  flex: auto;
-  flex-direction: row;
-  justify-content: space-between;
+}
+
+.half.right {
+  text-align: right;
 }
 
 .half a {
@@ -108,6 +123,7 @@ nav li {
   display: inline-block;
   margin: auto;
   text-decoration: none;
+  margin-left: 1rem;
 }
 
 .half a span {
