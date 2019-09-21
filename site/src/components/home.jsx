@@ -47,14 +47,14 @@ class Home extends Component {
         </p>
         <p>
           That’s also why I love agile: it’s down to earth and realistic, it’s
-          about setting small archievable goals in small increments, making sure
+          about setting small achievable goals in small increments, making sure
           it’s OK instead of going on adding more and more stuff built on a wrong
           assumption.
         </p>
         <p>And tests. </p>
         <p>
           Writing tests first is a good reminder to seriously think on what do
-          you want to achieve before you start crunching code, wich improves the
+          you want to achieve before you start crunching code, which improves the
           overall quality.
         </p>
         <p>
@@ -73,7 +73,7 @@ class Home extends Component {
         </p>
         <p>
           I also coach at Rails Girls events when I can find some nearby or
-          find the time to go to london!
+          find the time to go to London!
         </p>
       </div>
     );

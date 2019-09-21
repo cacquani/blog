@@ -7,7 +7,7 @@ class Resume extends Component {
         <p>This is just a summary of my skills and competences. If you're interested in a full CV, <a href="mailto:cacquani@mail.com">Contact me</a></p>
         <h2 className="divider">Profile</h2>
         <ul className="resume-list">
-          <li>Motivated software developer with 16 year experience in programming and 10 year experience with Ruby.</li>
+          <li>Motivated software developer with 16 year experience in software development and 10 year experience with Ruby.</li>
           <li>Enthusiast about problem solving and creative thinking.</li>
           <li>Fast learner and used to work in small teams, where the need to cover various roles has led to acquire an eclectic set of competences.</li>
           <li>Capable to analyse issues, elaborate solutions and organize short or long-term work plans, depending on the information at hand, ability acquired by working on development projects, through RPG and organizing small meeting and events among friends.</li>
