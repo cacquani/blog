@@ -9,12 +9,10 @@ body {
   font-family: TeXGyreAdventor, Calibri, Helvetica, sans-serif;
   font-size: large;
   color: #111;
-  background-image: linear-gradient(to right bottom, #FFF, #F9F9F9, #EEE);
-  background-size: cover;
-  background-position: bottom;
-  background-repeat: repeat-x;
+  background-image: url(../images/top-left.png);
+  background-repeat: no-repeat;
+  background-position: top left;
   background-attachment: fixed;
-  min-height: 100vh;
 }
 
 .content, header, footer {
@@ -23,11 +21,19 @@ body {
 
 header {
   background-color: #FFF;
+  background-image: url(../images/top-left.png);
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-attachment: fixed;
 }
 
 
 footer {
-  background-image: linear-gradient(to right, #F9F9F9, #EEE);
+  background-color: #FFF;
+  background-image: url(../images/bottom-right.png);
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
 }
 
 a {
